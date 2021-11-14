@@ -1,0 +1,54 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateToDoInput {
+  completed: Boolean!
+  toDo: String!
+  toDoListId: String!
+}
+
+input CreateToDoListInput {
+  title: String!
+}
+
+type Mutation {
+  createToDo(createToDoInput: CreateToDoInput!): ToDo!
+  createToDoList(createToDoListInput: CreateToDoListInput!): ToDoList!
+  removeToDo(id: String!): ToDo!
+  removeToDoList(id: String!): ToDoList!
+  updateToDo(updateToDoInput: UpdateToDoInput!): ToDo!
+  updateToDoList(updateToDoListInput: UpdateToDoListInput!): ToDoList!
+}
+
+type Query {
+  toDo(id: String!): ToDo!
+  toDoList(id: String!): ToDoList!
+  toDoLists: [ToDoList!]!
+}
+
+type ToDo {
+  completed: Boolean!
+  id: String!
+  toDo: String!
+  toDoList: ToDoList!
+  toDoListId: String!
+}
+
+type ToDoList {
+  id: String!
+  title: String!
+  toDos: [ToDo!]!
+}
+
+input UpdateToDoInput {
+  completed: Boolean
+  id: String!
+  toDo: String
+  toDoListId: String
+}
+
+input UpdateToDoListInput {
+  id: String!
+  title: String
+}
